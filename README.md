@@ -42,13 +42,13 @@ user@usuer:/Mongo_CRUD/api$ docker-compose up
 #### Aplicações e seus endereços e portas
 | API | Container | IP | Porta | Endereço |
 | -- | -- | -- | -- | -- |
-| API CRUD | api_mongo_crud_1 | localhost / 0.0.0.0 | 9001 | http://0.0.0.0:9001/swagger |
+| API CRUD | api_mongo_crud_1 | localhost / 0.0.0.0 | 9001 | http://localhost:9001/swagger |
 | MongoDB | mongo | localhost / 0.0.0.0 | 27017 | acessar por mongo-express http://localhost:8000/ |
 | mongo-express | mongo-express | localhost / 0.0.0.0 | 8000 | http://localhost:8000/ |	
 
 ### Utilização
 É possível testar a aplicação de 2 formas:
-- Fazer requisições por Swagger: http://0.0.0.0:9001/swagger
+- Fazer requisições por Swagger: http://localhost:9001/swagger
 
 - Enviar requisições no POSTMAN. 
 
@@ -61,8 +61,8 @@ poder testar cada API criada!
   ROTA                    |     HTTP(Verbo)   |      Descrição        | 
 ------------------------- | ----------------- | --------------------- | 
 /mongo/search/all         |       GET         | Buscar todos os registros     | 
-/mongo/search/rotina/<string:rotina>             |       GET        | Buscar registros pela rotina      | 
-/mongo/search/programa/<string:programa>|       GET         | Buscar registros pelo programa     | 
+/mongo/search/curso/<string:curso>             |       GET        | Buscar registros pelo curso      | 
+/mongo/search/materia/<string:materia>|       GET         | Buscar registros pela materia     | 
 /mongo/insert |       POST         | Insere um novo registro     |    
 /mongo/delete |       DELETE      | Excluir registro Por Id        |
 /mongo/update |       PUT      | Atualiza registro Por Id        |
