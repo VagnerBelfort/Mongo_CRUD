@@ -1,7 +1,7 @@
 # APLICAÇÃO RESTFUL API EM FLASK-RESTPLUS
 
 ## Inicio
-Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web.
+Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web, foram utlizadas as bibliotecas Flask e Flask Rest Plus.
 
 ## Recursos utilizados no desenvolvimento:
 
