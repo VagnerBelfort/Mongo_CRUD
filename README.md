@@ -1,7 +1,10 @@
 # APLICAÇÃO RESTFUL API EM FLASK-RESTPLUS
 
 ## Inicio
-Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web, foram utlizadas as bibliotecas Flask e Flask Rest Plus.
+ - Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web, foram utlizadas as bibliotecas Flask e Flask Rest Plus.
+ - Essa API utiliza um banco NoSQL MongoDB para armazenar dados de uma escola, criando uma collection curso contendo os campos: curso, materia, professor e horas.
+ - A API insere, atualiza, deleta e pesquisa os dados no banco.
+ - Utilizamos o Mongo-express para visualizar a banco de dados via web.
 
 ## Recursos utilizados no desenvolvimento:
 
@@ -9,7 +12,7 @@ Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servid
 - flask-restplus ~ v.0.13.0;
 - pymongo ~ v.3.9.0;
 - MongoDb;
-- mongo-express;
+- Mongo-express;
 - PostMan (testar a API criada);
 
 
