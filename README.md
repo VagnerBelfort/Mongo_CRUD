@@ -41,8 +41,24 @@ user@usuer:/Mongo_CRUD/api$ docker-compose up
 
 ### Utilização
 É possível testar a aplicação de 2 formas:
-- Fazer requisições por Swagger.
+- Fazer requisições por Swagger: http://0.0.0.0:9001/swagger
+
 - Enviar requisições no POSTMAN. 
+
+## Testando a Aplicação no Postman:
+
+Caso queira testar as API's criadas no projeto, primeiro baixe o [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
+Depois de realizar o download do Postman, basta agora realizar os passos abaiaxo para 
+poder testar cada API criada!
+
+  ROTA                    |     HTTP(Verbo)   |      Descrição        | 
+------------------------- | ----------------- | --------------------- | 
+/mongo/search/all         |       GET         | Buscar todos os registros     | 
+/mongo/search/rotina/<string:rotina>             |       GET        | Buscar registros pela rotina      | 
+/mongo/search/programa/<string:programa>|       GET         | Buscar registros pelo programa     | 
+/mongo/insert |       POST         | Insere um novo registro     |    
+/mongo/delete |       DELETE      | Excluir registro Por Id        |
+/mongo/update |       PUT      | Atualiza registro Por Id        |
 
 #### Aplicações e seus endereços e portas
 | API | Container | IP | Porta | Endereço |
