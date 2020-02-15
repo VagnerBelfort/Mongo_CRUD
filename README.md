@@ -1,8 +1,17 @@
-# DILBERT - PREDIÇÃO DE SOLUÇÃO DE LOGS
-Criar predição da melhor solução em logs de servidores.
+# APLICAÇÃO RESTFUL API EM FLASK-RESTPLUS
 
 ## Inicio
-Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web, foram utlizadas as bibliotecas Flask e Flask Rest Plus. Já para a classifição e extração dos documentos enviados, estatística e técnicas de machine learning e deep learning foram utlizadas.
+Projeto desenvolvido em Python 3.6. Para que a aplicação possa rodar em servidores web, foram utlizadas as bibliotecas Flask e Flask Rest Plus.
+
+## Recursos utilizados no desenvolvimento:
+
+- Flask;
+- flask-restplus ~ v.0.13.0;
+- pymongo ~ v.3.9.0;
+- MongoDb;
+- mongo-express;
+- PostMan (testar a API criada);
+
 
 ### Pré-requisitos
 Todo o projeto foi adaptado para rodar em _containers_ do Docker. Então, para levantar a aplicação localmente é necessário ter instalado o [docker](https://docs.docker.com/install/) e o [docker-compose](https://docs.docker.com/compose/install/).  
@@ -15,44 +24,46 @@ docker-compose version 1.24.1, build 4667896b
 ```
 Depois de instalado é necessário construir as imagens docker das APIs do projeto.
 ```sh
-user@usuer:/$ cd dilbert/api_dilbert
-user@usuer:/dilbert/api_dilbert$ docker-compose build --parallel
+user@usuer:/$ cd Mongo_CRUD/api
+user@usuer:/Mongo_CRUD/api$ docker-compose build --parallel
 ```
 É possível verificar se todas as images foram construídas com sucesso.  
-As images **01_predict_logs** e **02_client_dilbert**, devem aparecer no resultado da seguinte consulta:
+As images **api_mongo_1**, **api_mongo-express_1** e **api_mongo_1**, devem aparecer no resultado da seguinte consulta:
 ```sh
-user@usuer:/dilbert/api_dilbert$ docker image ls
+user@usuer:/Mongo_CRUD/api$ docker image ls
 ```
 
 ### Iniciar a aplicação
-Para o projeto DILBERT funcionar, é necessário que todas as suas APIs estejam de pé. Para isso, basta levantar todos os containers através do ``docker-compose up``.
+Para o projeto  funcionar, é necessário subir os dockers. Para isso, basta levantar todos os containers através do ``docker-compose up``.
 ```sh
-user@usuer:/dilbert/api_dilbert$ docker-compose up
+user@usuer:/Mongo_CRUD/api$ docker-compose up
 ```
-
-### Utilização
-É possível testar a aplicação de 2 formas:
-- Enviar aquivos através do _client_ (front-end).
-- Enviar uma requisição POST para *predict_logs* como JSON contendo o  arquivo como base64. 
-    ```json
-    {
-	"rotina": "GFID060",
-	"programa": "GFIP0062",
-	"logs": "888 *** GFIP0062 *** 25 - ERRO ABERTURA GFIF533E 888 *** GFIP0062 *** 25 - FILE STATUS 93 888 *** GFIP0062 *** 888 -CANCELADO"
-    }
-    ```
 
 #### Aplicações e seus endereços e portas
 | API | Container | IP | Porta | Endereço |
 | -- | -- | -- | -- | -- |
-| Cliente | 02_client_dilbert | localhost / 0.0.0.0 | 8012 | http://localhost:8012 |
-| Predict Logs | 01_predict_logs | localhost / 0.0.0.0 | 9000 | http://localhost:9000/api/sol/ |
+| API CRUD | api_mongo_crud_1 | localhost / 0.0.0.0 | 9001 | http://0.0.0.0:9001/swagger |
+| MongoDB | mongo | localhost / 0.0.0.0 | 27017 | acessar por mongo-express http://localhost:8000/ |
+| mongo-express | mongo-express | localhost / 0.0.0.0 | 8000 | http://localhost:8000/ |	
 
+### Utilização
+É possível testar a aplicação de 2 formas:
+- Fazer requisições por Swagger: http://0.0.0.0:9001/swagger
 
-    
-### Autores
-- Vagner Menezes Belfort De Lima
-- Arthur Rezende Bueno Pontes Barata
+- Enviar requisições no POSTMAN. 
 
-### Licença
-Banco do Brasil S.A. (BB)
+## Testando a Aplicação no Postman:
+
+Caso queira testar as API's criadas no projeto, primeiro baixe o [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
+Depois de realizar o download do Postman, basta agora realizar os passos abaiaxo para 
+poder testar cada API criada!
+
+  ROTA                    |     HTTP(Verbo)   |      Descrição        | 
+------------------------- | ----------------- | --------------------- | 
+/mongo/search/all         |       GET         | Buscar todos os registros     | 
+/mongo/search/rotina/<string:rotina>             |       GET        | Buscar registros pela rotina      | 
+/mongo/search/programa/<string:programa>|       GET         | Buscar registros pelo programa     | 
+/mongo/insert |       POST         | Insere um novo registro     |    
+/mongo/delete |       DELETE      | Excluir registro Por Id        |
+/mongo/update |       PUT      | Atualiza registro Por Id        |
+
