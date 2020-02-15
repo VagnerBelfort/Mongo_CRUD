@@ -66,3 +66,4 @@ poder testar cada API criada!
 /mongo/insert |       POST         | Insere um novo registro     |    
 /mongo/delete |       DELETE      | Excluir registro Por Id        |
 /mongo/update |       PUT      | Atualiza registro Por Id        |
+
